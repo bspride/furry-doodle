@@ -4,8 +4,11 @@ import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.MultiAutoCompleteTextView;
@@ -23,6 +26,12 @@ public class CreateNoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_note);
 
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.create_action_bar);
+        setSupportActionBar(myToolbar);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         noteRepository = new NoteRepository(this);
 
         titleEditText = (EditText) findViewById(R.id.new_note_title);
@@ -38,9 +47,9 @@ public class CreateNoteActivity extends AppCompatActivity {
 
         Intent returnIntent = new Intent();
         Bundle extras = new Bundle();
-        extras.putLong("resultId", note.getId());
-        extras.putString("title", note.getTitle());
-        extras.putString("date", note.getCreateDate());
+        extras.putLong("resultId", addedNote.getId());
+        extras.putString("title", addedNote.getTitle());
+        extras.putString("date", addedNote.getCreateDate());
         returnIntent.putExtras(extras);
         setResult(Activity.RESULT_OK, returnIntent);
         finish();
