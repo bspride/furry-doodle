@@ -20,6 +20,7 @@
             android:name=".NoteActivity"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".CreateNoteActivity"
+            android:parentActivityName=".MainActivity"
             android:windowSoftInputMode="adjustPan"></activity>
     </application>
 
