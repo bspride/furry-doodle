@@ -14,7 +14,7 @@ import android.view.MenuItem;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 
-import us.feras.mdv.MarkdownView;
+import com.quantum.apps.simplynotes.MarkdownView.MarkdownView;
 
 public class NoteActivity extends AppCompatActivity {
     private static final String NOTE_KEY = "NOTE";
